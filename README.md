@@ -40,15 +40,13 @@ See [ion-datetime-picker README](https://github.com/katemihalikova/ion-datetime-
 
 Model value must be formatted according to ISO 8601 standard, using *calendar date* and/or *time*. If both date and time are present, they must be separated by `T` or a whitespace.
 
-If the year is present, it's length must be at least 4 numbers, with an optional sign.
+If the year is present, it's length must be at least 4 numbers, with an optional sign. Time can be followed by time zone designator, but it is not used. Time zone with hour, but without minute is not supported (to prevent conflict between `MM-DD` and `HH-HH` values). If picker is using properties that, combined together, don't have valid string representation, nearest format is used and missing values are filled with `01` (date) or `00` (time), e.g. minute and second become `00:MM:SS`, while day becomes `01-DD`.
 
-Time can be followed by time zone designator, but it is not used.
-
-| Supported date formats         || Supported time formats                || Supported time zone formats |
-| ---------------------------- | -- | --------------------------------- | -- | ------------------------- |
-| `YYYY-MM-DD`                   || `HH:MM:SS.sss` (fraction is not used) || `+HH:MM`                    |
-| `YYYY-MM`                      || `HH:MM:SS`                            || `-HH:MM`                    |
-| `YYYY`                         || `HH:MM`                               || `+HHMM`                     |
-| `MM-DD`                        || `HH`                                  || `-HHMM`                     |
-| `DD` (only if time is present) ||                                       || `Z`                         |
+| Supported date formats                     || Supported time formats                || Supported time zone formats |
+| ---------------------------------------- | -- | --------------------------------- | -- | ------------------------- |
+| `YYYY-MM-DD`                               || `HH:MM:SS.sss` (fraction is not used) || `+HH:MM`                    |
+| `YYYY-MM`                                  || `HH:MM:SS`                            || `-HH:MM`                    |
+| `YYYY`                                     || `HH:MM`                               || `+HHMM`                     |
+| `MM-DD`                                    || `HH`                                  || `-HHMM`                     |
+| `DD` (only input; only if time is present) ||                                       || `Z`                         |
 
